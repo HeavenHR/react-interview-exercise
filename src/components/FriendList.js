@@ -4,11 +4,7 @@ import mapValues from 'lodash/object/mapValues';
 import styles from './FriendList.css';
 import FriendListItem from './FriendListItem';
 
-export default class FriendList extends Component {
-  static propTypes = {
-    friends: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
-  }
+class FriendList extends Component {
 
   render () {
     return (
@@ -28,3 +24,10 @@ export default class FriendList extends Component {
   }
 
 }
+
+FriendList.propTypes = {
+  friends: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
+}
+
+export default FriendList
