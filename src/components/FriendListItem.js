@@ -2,14 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import styles from './FriendListItem.css';
 
-export default class FriendListItem extends Component {
-  static propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    starred: PropTypes.boolean,
-    starFriend: PropTypes.func.isRequired,
-    onTrashClick: PropTypes.func.isRequired
-  }
+class FriendListItem extends Component {
 
   render () {
     return (
@@ -31,3 +24,13 @@ export default class FriendListItem extends Component {
   }
 
 }
+
+FriendListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  starred: PropTypes.boolean,
+  starFriend: PropTypes.func.isRequired,
+  onTrashClick: PropTypes.func.isRequired
+}
+
+export default FriendListItem

@@ -6,15 +6,7 @@ import { connect } from 'react-redux';
 import * as FriendsActions from '../actions/FriendsActions';
 import { FriendList, AddFriendInput } from '../components';
 
-@connect(state => ({
-  friendlist: state.friendlist
-}))
-export default class FriendListApp extends Component {
-
-  static propTypes = {
-    friendsById: PropTypes.object.isRequired,
-    dispatch: PropTypes.func.isRequired
-  }
+class FriendListApp extends Component {
 
   render () {
     const { friendlist: { friendsById }, dispatch } = this.props;
@@ -29,3 +21,14 @@ export default class FriendListApp extends Component {
     );
   }
 }
+
+FriendListApp.propTypes = {
+  friendsById: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired
+}
+
+function mapStateToProps(state) {
+  return state
+}
+
+export default connect(mapStateToProps)(FriendListApp)
