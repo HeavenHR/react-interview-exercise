@@ -1,12 +1,8 @@
-# react-task
-
-The minimal dev environment to enable live-editing React components.
-
 ## Usage
 
 ```
-npm install
-npm start
+yarn install
+yarn start
 open http://localhost:3000
 ```
 
@@ -14,7 +10,7 @@ open http://localhost:3000
 
 - Please add pagination support to the list when there are more than 2 entries
 - Please add option to select sex of a friend male/female and display it
-- Please add tests using your preferred testing tool (mocha, should.js ...)
+- Please add tests using your preferred testing tool (jest, mocha, should.js ...)
 
 ## Objectives
 
