@@ -12,10 +12,12 @@ class FriendListItem extends Component {
           <div><small>xx friends in common</small></div>
         </div>
         <div className={styles.friendActions}>
-          <button className={`btn btn-default ${styles.btnAction}`} onClick={() => this.props.starFriend(this.props.id)}>
+          <button className={`btn btn-default ${styles.btnAction}`}
+                  onClick={() => this.props.starFriend(this.props.id)}>
             <i className={classnames('fa', { 'fa-star': this.props.starred }, { 'fa-star-o': !this.props.starred })} />
           </button>
-          <button className={`btn btn-default ${styles.btnAction}`} onClick={() => this.props.deleteFriend(this.props.id)}>
+          <button className={`btn btn-default ${styles.btnAction}`}
+                  onClick={() => this.props.deleteFriend(this.props.id)}>
             <i className="fa fa-trash" />
           </button>
         </div>
@@ -28,9 +30,8 @@ class FriendListItem extends Component {
 FriendListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  starred: PropTypes.boolean,
-  starFriend: PropTypes.func.isRequired,
-  onTrashClick: PropTypes.func.isRequired
-}
+  starred: PropTypes.bool,
+  starFriend: PropTypes.func.isRequired
+};
 
 export default FriendListItem
