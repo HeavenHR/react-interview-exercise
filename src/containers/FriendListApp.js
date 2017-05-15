@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import styles from './FriendListApp.css';
 import { connect } from 'react-redux';
 

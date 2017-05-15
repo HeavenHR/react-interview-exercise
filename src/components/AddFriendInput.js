@@ -40,6 +40,6 @@ class AddFriendInput extends Component {
 
 AddFriendInput.propTypes = {
   addFriend: PropTypes.func.isRequired
-}
+};
 
 export default AddFriendInput
