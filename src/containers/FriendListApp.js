@@ -9,9 +9,7 @@ import { FriendList, AddFriendInput } from '../components';
 class FriendListApp extends Component {
 
   render () {
-    console.log(this.props)
     const { friendlist: { friendsById }, dispatch } = this.props;
-    console.log(friendsById)
     const actions = bindActionCreators(FriendsActions, dispatch);
 
     return (
