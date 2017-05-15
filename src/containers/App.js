@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { combineReducers } from 'redux';
+import {combineReducers, createStore} from 'redux';
 import { Provider } from 'react-redux';
-
-import { createStore, renderDevTools } from '../store_enhancers/devTools';
 
 import FriendListApp from './FriendListApp';
 import * as reducers from '../reducers';
@@ -15,10 +13,8 @@ export default class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          {() => <FriendListApp /> }
+          <FriendListApp />
         </Provider>
-
-        {renderDevTools(store)}
       </div>
     );
   }

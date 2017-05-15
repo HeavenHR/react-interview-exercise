@@ -1,24 +1,24 @@
 import * as types from '../constants/ActionTypes';
-import omit from 'lodash/object/omit';
-import assign from 'lodash/object/assign';
-import mapValues from 'lodash/object/mapValues';
+import omit from 'lodash/omit';
+import assign from 'lodash/assign';
+import mapValues from 'lodash/mapValues';
 
 const initialState = {
   friends: [1, 2, 3],
-  friendsById: {
-    1: {
+  friendsById: [
+    {
       id: 1,
       name: 'Theodore Roosevelt'
     },
-    2: {
+    {
       id: 2,
       name: 'Abraham Lincoln'
     },
-    3: {
+    {
       id: 3,
       name: 'George Washington'
     }
-  }
+  ]
 };
 
 export default function friends(state = initialState, action) {
