@@ -1,10 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
-export function addFriend(name, gender) {
+export function addFriend(name) {
   return {
     type: types.ADD_FRIEND,
-    name,
-    gender
+    name
   };
 }
 

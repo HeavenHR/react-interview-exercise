@@ -25,8 +25,7 @@ export default function friends(state = initialState, action) {
         friendsById: [
           ...state.friendsById,
           {
-            name: action.name,
-            gender: action.gender
+            name: action.name
           }
         ],
       };

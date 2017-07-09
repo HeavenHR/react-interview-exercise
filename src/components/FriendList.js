@@ -1,20 +1,18 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './FriendList.css';
 import FriendListItem from './FriendListItem';
-import {map} from 'lodash';
 
 class FriendList extends Component {
-  render() {
+  render () {
     return (
       <ul className={styles.friendList}>
         {
-          map(this.props.friends, (friend, index) => {
+          this.props.friends.map((friend, index) => {
             return (
               <FriendListItem
                 key={index}
-                id={Number(index)}
+                id={index}
                 name={friend.name}
-                gender={friend.gender}
                 starred={friend.starred}
                 {...this.props.actions} />
             );
@@ -27,7 +25,7 @@ class FriendList extends Component {
 }
 
 FriendList.propTypes = {
-  friends: PropTypes.object.isRequired,
+  friends: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
