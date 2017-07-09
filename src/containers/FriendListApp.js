@@ -1,26 +1,36 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styles from './FriendListApp.css';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import {pick, times} from 'lodash';
 
 import {addFriend, deleteFriend, starFriend} from '../actions/FriendsActions';
-import { FriendList, AddFriendInput } from '../components';
+import {setPage, updateAfterChange} from '../actions/PaginationActions';
+import {FriendList, AddFriendInput, Paginator} from '../components';
 
 class FriendListApp extends Component {
 
-  render () {
-    const { friendlist: { friendsById }} = this.props;
+  componentWillMount() {
+    this.props.updateAfterChange();
+  }
 
+  render() {
+    const {friendlist: {friendsById}, pagination: {currentPageNo, pageSize}} = this.props;
     const actions = {
       addFriend: this.props.addFriend,
       deleteFriend: this.props.deleteFriend,
-      starFriend: this.props.starFriend
+      starFriend: this.props.starFriend,
+      setPage: this.props.setPage
     };
-
+    const list = pick(friendsById, times(pageSize, n => n + currentPageNo * pageSize));
     return (
       <div className={styles.friendListApp}>
         <h1>The FriendList</h1>
-        <AddFriendInput addFriend={actions.addFriend} />
-        <FriendList friends={friendsById} actions={actions} />
+        <AddFriendInput addFriend={actions.addFriend}/>
+        <FriendList friends={list} actions={actions}/>
+        <Paginator setPage={actions.setPage}
+                   length={friendsById.length}
+                   currentPageNo={currentPageNo}
+                   pageSize={pageSize}/>
       </div>
     );
   }
@@ -33,5 +43,7 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, {
   addFriend,
   deleteFriend,
-  starFriend
+  starFriend,
+  setPage,
+  updateAfterChange
 })(FriendListApp)
