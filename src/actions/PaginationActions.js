@@ -1,7 +1,8 @@
 import * as types from '../constants/ActionTypes';
 
 /**
- * tries to update page to <pageNo>, handles case when there are no records for this page
+ * tries to update page to <pageNo>,
+ * if no records on that page then go to last page where exists record
  * @param pageNo
  * @returns {function(*, *)}
  */
@@ -10,19 +11,21 @@ export function setPage(pageNo) {
     const {pagination: {pageSize}, friendlist: {friendsById}} = getState();
     //calc list belonging to page <pageNo>
     let newList = friendsById.slice(pageNo * pageSize, pageNo * pageSize + pageSize);
-    //if empty, set prev page
-    if (!newList.length) {
-      pageNo = pageNo > 0 ? pageNo - 1 : 0;
+    //if empty, then recursively set prev page
+    if (!newList.length && pageNo > 0) {
+      dispatch(setPage(pageNo - 1));
     }
-    dispatch({
-      type: types.SET_PAGE,
-      pageNo
-    });
+    else{
+      dispatch({
+        type: types.SET_PAGE,
+        pageNo
+      });
+    }
   }
 }
 
 /**
- * updates currently viewed page in case records deleted and need to go back 1 page
+ * updates currently viewed page in case records deleted and need to go back to last page
  * @returns {function(*, *)}
  */
 export function updateAfterChange() {
