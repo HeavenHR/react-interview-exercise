@@ -8,17 +8,11 @@ const initialState = {
 export default function pagination(state = initialState, action) {
   switch (action.type) {
 
-    case types.UPDATE_AFTER_CHANGE:
-      const {currentPageNo} = action;
-      return {
-        ...state,
-        currentPageNo
-      };
-
     case types.SET_PAGE:
+      const {pageNo} = action;
       return {
         ...state,
-        currentPageNo: action.pageNo
+        currentPageNo: pageNo
       };
 
     default:

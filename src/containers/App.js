@@ -11,11 +11,11 @@ const reducer = combineReducers(reducers);
 
 const paginationUpdatingMiddleWare = store => next => action => {
   next(action);
-  if (action.type === 'DELETE_FRIEND' || action.type === 'ADD_FRIEND') {
+  if (action.type === 'DELETE_FRIEND') {  //if record deleted, need to check whether to go back 1 page if current has no records
     store.dispatch(updateAfterChange());
-    if (action.type === 'ADD_FRIEND') {
-      store.dispatch(showLastPage());
-    }
+  }
+  else if (action.type === 'ADD_FRIEND') {  //if record added, we go to last page to view it
+    store.dispatch(showLastPage());
   }
 };
 
