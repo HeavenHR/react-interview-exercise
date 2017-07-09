@@ -29,10 +29,7 @@ export function updateAfterChange() {
 export function showLastPage() {
   return (dispatch, getState) => {
     const {pagination: {pageSize}, friendlist: {friendsById}} = getState();
-    dispatch({
-      type: types.SET_PAGE,
-      pageNo: Math.ceil(friendsById.length / pageSize)
-    });
+    dispatch(setPage(Math.ceil(friendsById.length / pageSize)));
     dispatch(updateAfterChange());
   }
 }
