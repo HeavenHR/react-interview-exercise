@@ -5,7 +5,7 @@ const initialState = {
   pageSize: 2
 };
 
-export default function friends(state = initialState, action) {
+export default function pagination(state = initialState, action) {
   switch (action.type) {
 
     case types.UPDATE_AFTER_CHANGE:
