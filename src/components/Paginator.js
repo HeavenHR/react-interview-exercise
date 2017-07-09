@@ -8,6 +8,7 @@ class Paginator extends Component {
         const {setPage, length, pageSize, currentPageNo} = this.props;
         return (
             <div className={styles.paginator}>
+                <button className={classnames('btn', 'btn-default')}>&laquo;</button>
                 { times(Math.ceil(length / pageSize), pageNo => <button key={pageNo}
                                                                         className={classnames('btn',
                                                                             'btn-default',
@@ -15,6 +16,7 @@ class Paginator extends Component {
                                                                         onClick={() => setPage(pageNo)}>
                     {pageNo + 1}
                 </button>) }
+                <button className={classnames('btn', 'btn-default')}>&raquo;</button>
             </div>
         );
     }
