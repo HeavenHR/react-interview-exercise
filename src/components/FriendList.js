@@ -26,7 +26,7 @@ class FriendList extends Component {
 }
 
 FriendList.propTypes = {
-    friends: PropTypes.object.isRequired,
+    friends: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 };
 
