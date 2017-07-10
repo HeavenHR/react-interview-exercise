@@ -1,10 +1,10 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import styles from './AddFriendInput.css';
 
 class AddFriendInput extends Component {
 
-  render() {
+  render () {
     return (
       <div>
         <input
@@ -44,11 +44,11 @@ class AddFriendInput extends Component {
     };
   }
 
-  handleChange(e) {
+  handleChange (e) {
     this.setState({name: e.target.value});
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     const name = e.target.value.trim();
     if (e.which === 13) {
       this.submit(name, this.state.gender);
