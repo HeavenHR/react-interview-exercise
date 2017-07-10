@@ -44,5 +44,11 @@ describe('Paginator behavior', () => {
     expect(sh.find('button').at(2).hasClass('active')).toEqual(false);
     expect(sh.find('button').at(3).hasClass('active')).toEqual(true); //btn with "3" should be the only one active
     expect(sh.find('button').at(4).hasClass('active')).toEqual(false);
+
+    sh.setProps({ currentPageNo: 1, length: 5, pageSize:3 });
+
+    expect(sh.find('button').at(2).hasClass('active')).toEqual(true);
+    expect(sh.find('button').at(3).hasClass('active')).toEqual(false);
+    expect(sh.find('button').length).toEqual(4);  //now there are only 4 buttons
   });
 });
