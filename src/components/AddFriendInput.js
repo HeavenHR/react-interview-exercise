@@ -45,7 +45,7 @@ class AddFriendInput extends Component {
   }
 
   handleChange (e) {
-    this.setState({name: e.target.value});
+    this.setState({ name: e.target.value });
   }
 
   handleSubmit (e) {
@@ -63,7 +63,7 @@ class AddFriendInput extends Component {
 
   submit(name, gender) {
     this.props.addFriend(name, gender);
-    this.setState({name: '', gender: ''});
+    this.setState({ name: '', gender: '' });
   }
 
 }

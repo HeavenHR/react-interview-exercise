@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from './FriendListApp.css';
-import {connect} from 'react-redux';
-import {pick, times} from 'lodash';
+import { connect } from 'react-redux';
+import { pick, times } from 'lodash';
 
 import {addFriend, deleteFriend, starFriend} from '../actions/FriendsActions';
-import {setPage, updateAfterChange} from '../actions/PaginationActions';
-import {FriendList, AddFriendInput, Paginator} from '../components';
+import { FriendList, AddFriendInput, Paginator } from '../components';
+import { setPage, updateAfterChange } from '../actions/PaginationActions';
 
 class FriendListApp extends Component {
 
@@ -14,7 +14,7 @@ class FriendListApp extends Component {
   }
 
   render() {
-    const {friendlist: {friendsById}, pagination: {currentPageNo, pageSize}} = this.props;
+    const { friendlist: {friendsById}, pagination: {currentPageNo, pageSize} } = this.props;
     const actions = {
       addFriend: this.props.addFriend,
       deleteFriend: this.props.deleteFriend,
