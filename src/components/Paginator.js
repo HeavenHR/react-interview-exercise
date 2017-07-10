@@ -9,7 +9,7 @@ class Paginator extends Component {
     return (
       <div className={styles.paginator}>
         <button className={classnames('btn', 'btn-default')}
-                onClick={() => this.changePage(-1)}>&laquo;</button>
+                onClick={() => this.changePageOffset(-1)}>&laquo;</button>
         { times(Math.ceil(length / pageSize), pageNo => <button key={pageNo}
                                                                 className={classnames('btn',
                                                                   'btn-default',
@@ -18,18 +18,18 @@ class Paginator extends Component {
           {pageNo + 1}
         </button>) }
         <button className={classnames('btn', 'btn-default')}
-                onClick={() => this.changePage(1)}>&raquo;</button>
+                onClick={() => this.changePageOffset(1)}>&raquo;</button>
       </div>
     );
   }
 
-  changePage(diff) {
+  changePageOffset(offset) {
     const {setPage, currentPageNo} = this.props;
-    let newPage = currentPageNo + diff;
+    let newPage = currentPageNo + offset;
     if (newPage < 0) {
       newPage = 0;
     }
-    setPage(newPage)
+    setPage(newPage);
   }
 }
 
