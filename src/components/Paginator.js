@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import styles from './Paginator.css';
 import {times} from 'lodash';
 import classnames from 'classnames';
 
@@ -7,7 +6,7 @@ class Paginator extends Component {
   render() {
     const {setPage, length, pageSize, currentPageNo} = this.props;
     return (
-      <div className={styles.paginator}>
+      <div>
         <button className={classnames('btn', 'btn-default')}
                 onClick={() => this.changePageOffset(-1)}>&laquo;</button>
         { times(Math.ceil(length / pageSize), pageNo => <button key={pageNo}

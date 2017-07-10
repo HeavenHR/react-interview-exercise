@@ -1,10 +1,10 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './FriendList.css';
 import FriendListItem from './FriendListItem';
 import {map} from 'lodash';
 
 class FriendList extends Component {
-  render() {
+  render () {
     return (
       <ul className={styles.friendList}>
         {

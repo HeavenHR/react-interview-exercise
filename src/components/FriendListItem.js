@@ -22,11 +22,11 @@ class FriendListItem extends Component {
             <i className={classnames('fa', {
               'fa-star': this.props.starred,
               'fa-star-o': !this.props.starred
-            })}/>
+            })} />
           </button>
           <button className={`btn btn-default ${styles.btnAction}`}
                   onClick={() => this.props.deleteFriend(this.props.id)}>
-            <i className="fa fa-trash"/>
+            <i className="fa fa-trash" />
           </button>
         </div>
       </li>
