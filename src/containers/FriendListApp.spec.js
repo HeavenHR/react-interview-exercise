@@ -6,9 +6,6 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {shallow} from 'enzyme';
 
-
-import {setPage, updateAfterChange} from '../actions/PaginationActions';
-
 const mockStore = configureMockStore([thunk]);
 
 describe('FriendListApp behavior', () => {
