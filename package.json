@@ -5,12 +5,15 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
+    "uuid": "^3.1.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
     "react-scripts": "0.9.5"
   },
   "scripts": {
