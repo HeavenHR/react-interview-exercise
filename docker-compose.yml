@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  dev:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    command: yarn start
+    volumes:
+      - "./src:/var/www/src"
+  test:
+    build:
+      context: .
+    environment:
+      - CI=true
+    volumes:
+      - "./src:/var/www/src"
+    command: yarn test
