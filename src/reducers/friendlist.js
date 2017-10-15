@@ -1,16 +1,21 @@
+import uuidv1 from 'uuid/v1';
+
 import * as types from '../constants/ActionTypes';
 
-const initialState = {
+export const initialState = {
   friendsById: [
     {
+      id: uuidv1(),
       name: 'Theodore Roosevelt',
       starred: true
     },
     {
+      id: uuidv1(),
       name: 'Abraham Lincoln',
       starred: false
     },
     {
+      id: uuidv1(),
       name: 'George Washington',
       starred: false
     }
@@ -25,6 +30,7 @@ export default function friends(state = initialState, action) {
         friendsById: [
           ...state.friendsById,
           {
+            id: uuidv1(),
             name: action.name
           }
         ],
@@ -32,7 +38,7 @@ export default function friends(state = initialState, action) {
     case types.DELETE_FRIEND:
       return {
         ...state,
-        friendsById: state.friendsById.filter((item, index) => index !== action.id)
+        friendsById: state.friendsById.filter(item => item.id !== action.id)
       };
     case types.STAR_FRIEND:
       let friends = [...state.friendsById];

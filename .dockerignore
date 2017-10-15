@@ -1,0 +1,8 @@
+# Ignore all files by default
+*
+
+# White list only the required files
+!src/
+!public/
+!package.json
+!yarn.lock

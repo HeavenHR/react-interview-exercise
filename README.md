@@ -17,3 +17,14 @@ open http://localhost:3000
 - You have received a working example so please do not upgrade any packages unless you really have to.
 - Please check for small things like syntax errors, since details matter.
 - Please deliver something that works, non working project is an automatic disqualification
+
+## Docker
+
+To buid the docker image run:
+```docker-compose build```
+
+To run the project:
+```docker-compose up```
+
+To stop the project:
+```docker-compose down```
