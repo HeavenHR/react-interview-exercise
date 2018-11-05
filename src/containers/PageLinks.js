@@ -7,14 +7,14 @@ import styles from './pageLinks.css';
 
 export default class PageLinks extends Component {
 
-  pageNumbers = [];
-
   constructor(props) {
     super(props);
     this.onPageChange = this.onPageChange.bind(this);
     this.goPreviousPage = this.goPreviousPage.bind(this);
     this.goNextPage = this.goNextPage.bind(this);
-    this.state = {};
+    this.state = {
+      pageNumbers: [],
+    };
   }
 
   componentWillMount() {
@@ -24,18 +24,23 @@ export default class PageLinks extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { count } = nextProps;
+    const { pageNumbers } = this.state;
     this.caculateTotalPages(count);
     this.setState({
-      firstPage: this.pageNumbers[0],
-      lastPage: this.pageNumbers[this.pageNumbers.length - 1],
+      firstPage: pageNumbers[0],
+      lastPage: pageNumbers[pageNumbers.length - 1],
     });
   }
 
   caculateTotalPages(count) {
     const { itemPerPage } = this.props;
+    const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(count / itemPerPage); i++) {
-      this.pageNumbers.push(i);
+      pageNumbers.push(i);
     }
+    this.setState({
+      pageNumbers: pageNumbers,
+    })
   }
 
   goPreviousPage() {
@@ -58,7 +63,8 @@ export default class PageLinks extends Component {
 
   renderPageNumbers() {
     const { page } = this.props;
-    return (this.pageNumbers || []).map(number =>
+    const { pageNumbers } = this.state;
+    return (pageNumbers || []).map(number =>
       <a
         key={number}
         id={number}

@@ -20,12 +20,27 @@ export default class FriendList extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { friends } = nextProps;
+    const { page } = this.state;
+    const currentFriends = this.currentPageList(friends);
+    if (currentFriends.length === 0) {
+      this.setState({
+        page: page - 1 >= 1 ? (page - 1) : 1,
+      });
+    }
+  }
+
+  currentPageList(friends) {
+    const { page, itemPerPage } = this.state;
+    const indexOfLastItem = page * itemPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemPerPage;
+    return friends.slice(indexOfFirstItem, indexOfLastItem);
+  }
+
   render() {
     const { friends } = this.props;
-    const { page, itemPerPage } = this.state;
-    const indexOfLastTodo = page * itemPerPage;
-    const indexOfFirstTodo = indexOfLastTodo - itemPerPage;
-    const currentFriends = friends.slice(indexOfFirstTodo, indexOfLastTodo);
+    const currentFriends = this.currentPageList(friends);
     return (
       <div>
         <ul className={styles.friendList}>
