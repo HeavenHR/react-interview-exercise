@@ -4,3 +4,41 @@
   border-left: 0;
   border-right: 0;
 }
+
+:local(.genderField){
+  background-color: #fff;
+  padding:10px;  
+}
+:local(.formBlock){
+  border-bottom:1px solid #ccc;
+}
+
+:local(.textCenter){
+  text-align: center;
+}
+:local(.textLeft){
+  text-align: left;
+}
+
+:local(.inlineButton){
+  display: inline-block;  
+}
+:local(.inlineButton:not(:first-child)){
+  margin-left: 10px;  
+}
+
+:local(.btn){
+  color:#fff;
+  background-color: #5C75B0;
+  border-radius: 5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+}
+
+:local(.btn:hover){
+  background-color: lightblue;
+}
+:local(.error){
+  background-color: #fff;
+  color:lightsalmon;
+}

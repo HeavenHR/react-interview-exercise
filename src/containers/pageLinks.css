@@ -1,0 +1,21 @@
+:local(.pagination) {
+  display: inline-block;
+  text-align: center;
+}
+
+:local(.pagination a ){
+  color: #000;
+  float: left;
+  padding: 5px;
+  text-decoration: none;
+  transition: background-color .3s;
+  /* border: 1px solid #ddd; */
+}
+
+:local(.pagination a.active) {
+  background-color: #5C75B0;
+  color: white;
+  /* border: 1px solid #5C75B0; */
+}
+
+:local(.pagination a:hover:not(.active)) {background-color: #ddd;}
