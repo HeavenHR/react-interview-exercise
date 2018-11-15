@@ -1,0 +1,15 @@
+:local(.container) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:local(.buttonGroup) {
+  display: flex;
+  padding: 10px 0;
+}
+
+:local(.select) {
+  margin: 0 15px;
+}
+

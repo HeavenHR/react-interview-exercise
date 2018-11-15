@@ -42,7 +42,15 @@ export default function friends(state = initialState, action) {
         ...state,
         friendsById: friends
       };
-
+    case types.GENDER_FRIEND: {
+      let friends = [...state.friendsById];
+      let friend = friends.find((item, index) => index === action.id);
+      friend.gender = action.gender;
+      return {
+        ...state,
+        friendsById: friends
+      };
+    }
     default:
       return state;
   }

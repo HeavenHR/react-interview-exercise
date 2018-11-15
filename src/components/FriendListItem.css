@@ -3,6 +3,9 @@
   padding: 20px 10px 20px 20px;
   background-color: white;
   border-bottom: 1px solid #E3E3E3;
+}
+
+:local(.friendsContainer) {
   display: flex;
 }
 
@@ -26,3 +29,22 @@
 button:focus {
   outline: 0 !important;
 }
+
+:local(.gender) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+:local(.inputGroup) {
+  display: flex;
+}
+
+:local(.label) {
+  margin-right: 20px;
+}
+
+:local(.input) {
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
