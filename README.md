@@ -19,7 +19,7 @@ open http://localhost:3000
 - Please deliver something that works, non working project is an automatic disqualification
 
 
-## My Notes:-
+## My Notes
 - Used `prop-types` npm-packge instead of `React.PropTypes` to avoid this warning -> **Warning: Accessing PropTypes via the main React package is deprecated. Use the prop-types package from npm instead**.
 - Testing tools used `chai, enzyme & sinon`.
 - Added `enzyme-adapter-react-15` to support `enzyme` for `react@15.5.4` version, for more information [enzyme](https://github.com/airbnb/enzyme).
