@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import _ from 'lodash';
 
 import { FriendList, Pagination } from '../../components';
@@ -60,6 +60,11 @@ class FriendListContainer extends Component {
       </div>
     );
   }
+};
+
+FriendListContainer.propTypes = {
+  friends: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 export default FriendListContainer;

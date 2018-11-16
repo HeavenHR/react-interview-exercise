@@ -33,6 +33,7 @@ button:focus {
 :local(.gender) {
   display: flex;
   justify-content: flex-end;
+  padding-top: 10px;
 }
 
 :local(.inputGroup) {

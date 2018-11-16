@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import styles from './styles.css';
 
@@ -9,7 +9,7 @@ class Pagination extends Component {
     super(props);
     
     this.state = {
-      pageIndexChanged: false
+      selectedPageIndex: 0
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,24 +19,30 @@ class Pagination extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedPageIndex !== this.props.selectedPageIndex) {
-      this.setState(prevProps => ({
-        pageIndexChanged: !prevProps.pageIndexChanged
-      }));
+      this.setState({
+        selectedPageIndex: nextProps.selectedPageIndex
+      });
     }
   }
 
   handleChange(e) {
-    const pageIndex = Number(e.currentTarget.value);
-    
-    this.props.onPageSelect(pageIndex);
+    this.updatePageIndex(Number(e.target.value));
   }
 
   handlePrevButtonClick(e) {
-    this.props.onPageSelect(this.props.selectedPageIndex - 1);
+    this.updatePageIndex(this.props.selectedPageIndex - 1);
   }
 
   handleNextButtonClick(e) {
-    this.props.onPageSelect(this.props.selectedPageIndex + 1);
+    this.updatePageIndex(this.props.selectedPageIndex + 1);
+  }
+
+  updatePageIndex(pageIndex) {
+    this.setState({
+      selectedPageIndex: pageIndex
+    });
+
+    this.props.onPageSelect(pageIndex);
   }
 
   render() {
@@ -46,9 +52,16 @@ class Pagination extends Component {
     return(
       <div className={`${styles.container}`}>
         {pagesCount > 1 && (
-          <div className={`${styles.buttonGroup}`}>
+          <div className={`pagination ${styles.buttonGroup}`}>
             {/* disabled-attribute must be provided to disable the button on edge cases */}
-            <button type="button" className="btn" onClick={this.handlePrevButtonClick} disabled={selectedPageIndex === 0} ><span className="glyphicon glyphicon-chevron-left" /></button>
+            <button
+              type="button"
+              className="btn prev"
+              // Declaring Anonymous function for onClick-event-handler is a performance issue, so used this.handlePrevButtonClick.
+              {...(selectedPageIndex === 0 ? {disabled: true} : {onClick: this.handlePrevButtonClick})}
+            >
+              <span className="glyphicon glyphicon-chevron-left" />
+            </button>
             <select className={`${styles.select}`} value={selectedPageIndex} onChange={this.handleChange}>
               {friendsListByChunks.map((friends, key) => (
                 /**
@@ -59,12 +72,25 @@ class Pagination extends Component {
               ))}
             </select>
             {/* disabled-attribute must be provided to disable the button on edge cases */}
-            <button type="button" className="btn" onClick={this.handleNextButtonClick} disabled={selectedPageIndex === pagesCount - 1}><span className="glyphicon glyphicon-chevron-right" /></button>
+            <button
+              type="button"
+              className="btn next"
+              // Declaring Anonymous function for onClick-event-handler is a performance issue, so used this.handleNextButtonClick.
+              {...(selectedPageIndex === pagesCount - 1 ? {disabled: true} : {onClick: this.handleNextButtonClick})}
+            >
+              <span className="glyphicon glyphicon-chevron-right" />
+            </button>
           </div>
         )}
       </div>
     );
   }
 }
+
+Pagination.propTypes = {
+  friendsListByChunks: PropTypes.array.isRequired,
+  onPageSelect: PropTypes.func.isRequired,
+  selectedPageIndex: PropTypes.number.isRequired
+};
 
 export default Pagination;
