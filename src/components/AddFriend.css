@@ -1,0 +1,7 @@
+:local(.addFriendContainer) {
+  margin: 10px;
+}
+
+:local(.addFriendButtonHolder) {
+  margin-bottom: 10px;
+}

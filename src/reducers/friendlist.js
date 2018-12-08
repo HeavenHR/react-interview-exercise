@@ -1,24 +1,26 @@
-import {random} from 'lodash'
-import * as types from '../constants/ActionTypes';
+import { random } from "lodash";
+
+import * as types from "../constants/ActionTypes";
+import { MALE } from "./../constants/PageTypes";
 
 const initialState = {
   friendsById: [
     {
-      id:random(10000,1000000,false),
-      name: 'Theodore Roosevelt',
-      gender: 'Male',
+      id: random(10000, 1000000, false),
+      name: "Theodore Roosevelt",
+      gender: MALE,
       starred: true
     },
     {
-      id:random(10000,1000000,false),
-      name: 'Abraham Lincoln',
-      gender: 'Male',
+      id: random(10000, 1000000, false),
+      name: "Abraham Lincoln",
+      gender: MALE,
       starred: false
     },
     {
-      id:random(10000,1000000,false),
-      name: 'George Washington',
-      gender: 'Male',
+      id: random(10000, 1000000, false),
+      name: "George Washington",
+      gender: MALE,
       starred: false
     }
   ]
@@ -34,9 +36,9 @@ export default function friends(state = initialState, action) {
           {
             name: action.friend.name,
             gender: action.friend.gender,
-            id:random(10000,1000000,false),
+            id: random(10000, 1000000, false)
           }
-        ],
+        ]
       };
     case types.DELETE_FRIEND:
       return {

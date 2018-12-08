@@ -1,5 +1,8 @@
 import React, { PropTypes } from "react";
 import classnames from "classnames";
+
+import { FEMALE, MALE } from "./../constants/PageTypes";
+
 import styles from "./AddFriendRadio.css";
 
 const AddFriendRadio = (props) => {
@@ -10,25 +13,25 @@ const AddFriendRadio = (props) => {
         <input
           type='radio'
           name='gender'
-          value='Male'
-          checked={gender === "Male" ? true : false}
+          value={MALE}
+          checked={gender === MALE ? true : false}
           onChange={(e) => {
             onHandleChange("gender", e.target.value);
           }}
         />{" "}
-        Male
+        {MALE}
       </label>
       <label>
         <input
           type='radio'
           name='gender'
-          value='Female'
-          checked={gender === "Female" ? true : false}
+          value={FEMALE}
+          checked={gender === FEMALE ? true : false}
           onChange={(e) => {
             onHandleChange("gender", e.target.value);
           }}
         />{" "}
-        Female{" "}
+        {FEMALE}{" "}
       </label>
     </div>
   );
