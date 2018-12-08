@@ -1,0 +1,11 @@
+:local(.addFriendRadio) {
+    border-radius: 0;
+    border-color: #ABAAAA;
+    border-left: 0;
+    border-right: 0;
+  }
+
+:local(.addFriendRadioMale) {
+    padding-right:10px;
+}
+  

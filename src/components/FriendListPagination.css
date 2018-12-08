@@ -1,0 +1,9 @@
+:local(.friendListPagination)
+{
+    margin: 10px;
+}
+
+:local(.friendListPaginationPageNumber)
+{
+    margin: 0 15px;    
+}
