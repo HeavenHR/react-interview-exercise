@@ -34,7 +34,7 @@ FriendListPagination.propTypes = {
   totalPages: PropTypes.number,
   onPageChange: PropTypes.func.isRequired,
   isNextPagePresent: PropTypes.bool,
-  ispreviousPagePresent: PropTypes.bool,
+  ispreviousPagePresent: PropTypes.bool
 };
 
 export default FriendListPagination;

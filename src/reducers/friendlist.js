@@ -6,19 +6,19 @@ const initialState = {
     {
       id:random(10000,1000000,false),
       name: 'Theodore Roosevelt',
-      gender: 'male',
+      gender: 'Male',
       starred: true
     },
     {
       id:random(10000,1000000,false),
       name: 'Abraham Lincoln',
-      gender: 'male',
+      gender: 'Male',
       starred: false
     },
     {
       id:random(10000,1000000,false),
       name: 'George Washington',
-      gender: 'male',
+      gender: 'Male',
       starred: false
     }
   ]

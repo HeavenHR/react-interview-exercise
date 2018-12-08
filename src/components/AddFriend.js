@@ -8,7 +8,7 @@ class AddFriend extends Component {
     super(props, context);
     this.state = {
       name: "",
-      gender: "male"
+      gender: "Male"
     };
   }
 
@@ -32,7 +32,7 @@ class AddFriend extends Component {
   handleSubmit = (e) => {
     const nameFromState = this.state.name.trim();
     if (e.which === 13 && nameFromState.length > 0) {
-      this.props.addFriend({ name: nameFromState, gender: this.state.gender.trim() });
+      this.props.addFriend({ name: nameFromState, gender: this.state.gender });
       this.resetState();
     }
   };

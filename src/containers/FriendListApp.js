@@ -27,7 +27,9 @@ class FriendListApp extends Component {
     if (prevProps.friendlist.friendsById.length !== this.props.friendlist.friendsById.length) {
       const totalPages = Math.ceil(this.props.friendlist.friendsById.length / this.pageLimit);
       if (this.state.page > totalPages) {
-        this.setState({page:totalPages},()=>{this.getFriendsList(this.state.page)})
+        this.setState({ page: totalPages }, () => {
+          this.getFriendsList(this.state.page);
+        });
       } else {
         this.getFriendsList(this.state.page);
       }
