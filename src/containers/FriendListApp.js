@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import styles from "./FriendListApp.css";
-import { connect } from "react-redux";
-import { slice, isEqual } from "lodash";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import styles from './FriendListApp.css';
+import { connect } from 'react-redux';
+import { slice, isEqual } from 'lodash';
 
-import { addFriend, deleteFriend, starFriend } from "../actions/FriendsActions";
-import { FriendList, AddFriend, FriendListPagination } from "../components";
+import { addFriend, deleteFriend, starFriend } from '../actions/FriendsActions';
+import { FriendList, AddFriend, FriendListPagination } from '../components';
 
 export class FriendListApp extends Component {
   constructor(props, context) {
@@ -14,7 +15,7 @@ export class FriendListApp extends Component {
       totalPages: 1,
       friendListItems: [],
       isNextPagePresent: false,
-      ispreviousPagePresent: false
+      ispreviousPagePresent: false,
     };
     this.pageLimit = 2;
   }
@@ -38,12 +39,12 @@ export class FriendListApp extends Component {
 
   render() {
     const {
-      friendlist: { friendsById }
+      friendlist: { friendsById },
     } = this.props;
     const actions = {
       addFriend: this.props.addFriend,
       deleteFriend: this.props.deleteFriend,
-      starFriend: this.props.starFriend
+      starFriend: this.props.starFriend,
     };
 
     return (
@@ -60,7 +61,7 @@ export class FriendListApp extends Component {
             ispreviousPagePresent={this.state.ispreviousPagePresent}
           />
         ) : (
-          ""
+          ''
         )}
       </div>
     );
@@ -68,7 +69,7 @@ export class FriendListApp extends Component {
 
   getFriendsList = (page) => {
     const {
-      friendlist: { friendsById }
+      friendlist: { friendsById },
     } = this.props;
     const totalPages = Math.ceil(friendsById.length / this.pageLimit);
     const offset = (page - 1) * this.pageLimit;
@@ -88,15 +89,31 @@ export class FriendListApp extends Component {
       totalPages: totalPages,
       friendListItems: friendListItems,
       isNextPagePresent: isNextPagePresent,
-      ispreviousPagePresent: ispreviousPagePresent
+      ispreviousPagePresent: ispreviousPagePresent,
     });
   };
 
   onPageChange = (action) => {
-    const pageNumbertoExecute = action === "next" ? this.state.page + 1 : this.state.page - 1;
+    const pageNumbertoExecute = action === 'next' ? this.state.page + 1 : this.state.page - 1;
     this.getFriendsList(pageNumbertoExecute);
   };
 }
+
+FriendListApp.propTypes = {
+  friendlist: PropTypes.shape({
+    friendsById: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        gender: PropTypes.string,
+        starred: PropTypes.bool,
+      })
+    ),
+  }),
+  addFriend: PropTypes.func,
+  deleteFriend: PropTypes.func,
+  starFriend: PropTypes.func,
+};
 
 function mapStateToProps(state) {
   return state;
@@ -107,6 +124,6 @@ export default connect(
   {
     addFriend,
     deleteFriend,
-    starFriend
+    starFriend,
   }
 )(FriendListApp);
