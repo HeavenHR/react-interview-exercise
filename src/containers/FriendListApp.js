@@ -6,7 +6,7 @@ import { slice, isEqual } from "lodash";
 import { addFriend, deleteFriend, starFriend } from "../actions/FriendsActions";
 import { FriendList, AddFriend, FriendListPagination } from "../components";
 
-class FriendListApp extends Component {
+export class FriendListApp extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -26,7 +26,7 @@ class FriendListApp extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.friendlist.friendsById.length !== this.props.friendlist.friendsById.length) {
       const totalPages = Math.ceil(this.props.friendlist.friendsById.length / this.pageLimit);
-      if (this.state.page > totalPages) {
+      if (this.state.page > totalPages || this.state.page === 0) {
         this.setState({ page: totalPages }, () => {
           this.getFriendsList(this.state.page);
         });
