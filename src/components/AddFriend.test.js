@@ -43,4 +43,16 @@ describe('Component: AddFriend', () => {
     wrapper.instance().handleSubmit();
     expect(props.addFriend.mock.calls.length).toBe(1);
   });
+
+  it('test func handleChange', () => {
+    wrapper.setState({ name: '' });
+    wrapper.instance().handleChange('name','Bbq');
+    expect(wrapper.instance().state.name).toBe('Bbq');
+  });
+
+  it('test func handleKeyDown', () => {
+    wrapper.setState({ name: 'BBq' });
+    wrapper.instance().handleKeyDown({which:13});
+    expect(props.addFriend.mock.calls.length).toBe(2);
+  });
 });

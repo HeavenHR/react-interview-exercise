@@ -4,9 +4,12 @@ import Adapter from 'enzyme-adapter-react-15';
 import { shallow } from 'enzyme';
 
 import { FriendListApp } from './FriendListApp';
-import { FriendList, AddFriend, FriendListPagination } from '../components';
+import { FriendListPagination } from '../components';
 
-import { MALE } from "./../constants/PageTypes";
+import { addFriend, deleteFriend, starFriend } from '../actions/FriendsActions';
+import { ADD_FRIEND, DELETE_FRIEND, STAR_FRIEND } from './../constants/ActionTypes';
+
+import { MALE } from './../constants/PageTypes';
 
 configure({ adapter: new Adapter() });
 
@@ -52,11 +55,11 @@ describe('Container: FriendListApp', () => {
           starred: false,
         },
         {
-            id: 100002,
-            name: 'Abraham',
-            gender: MALE,
-            starred: false,
-          },
+          id: 100002,
+          name: 'Abraham',
+          gender: MALE,
+          starred: false,
+        },
       ],
     },
   };
@@ -66,16 +69,27 @@ describe('Container: FriendListApp', () => {
 
   it('renders without crashing', () => {
     expect(wrapper.exists()).toBe(true);
-  });  
+  });
 
   it('pagination should not load if less than or equal to 2', () => {
     expect(wrapper.find(FriendListPagination).length).toBe(0);
   });
 
-
   it('pagination should  load if more than  2', () => {
     expect(wrapperPagination.find(FriendListPagination).length).toBe(1);
   });
 
+  it('pagination test func onPageChange', () => {
+    wrapperPagination.instance().onPageChange('next');
+    expect(wrapperPagination.instance().state.page).toBe(2);
+  });
 
+  it('test func actions', () => {
+    const addObject = addFriend();
+    const deleteObject = deleteFriend(1);
+    const starObject = starFriend(1);
+    expect(addObject.type).toBe(ADD_FRIEND);
+    expect(deleteObject.type).toBe(DELETE_FRIEND);
+    expect(starObject.type).toBe(STAR_FRIEND);
+  });
 });
