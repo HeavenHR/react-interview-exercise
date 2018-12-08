@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import classnames from "classnames";
 import styles from "./FriendListItem.css";
 
@@ -8,10 +9,10 @@ class FriendListItem extends Component {
       <li className={styles.friendListItem}>
         <div className={styles.friendInfos}>
           <div>
-            <span>{this.props.name}</span>
+            <span className={styles.name}>{this.props.name}</span>
           </div>
           <div>
-            <span>{this.props.gender}</span>
+            <span className={styles.gender}>{this.props.gender}</span>
           </div>
           <div>
             <small>xx friends in common</small>
@@ -44,7 +45,8 @@ FriendListItem.propTypes = {
   name: PropTypes.string.isRequired,
   gender: PropTypes.string.isRequired,
   starred: PropTypes.bool,
-  starFriend: PropTypes.func.isRequired
+  starFriend: PropTypes.func.isRequired,
+  deleteFriend: PropTypes.func.isRequired,
 };
 
 export default FriendListItem;

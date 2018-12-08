@@ -1,19 +1,20 @@
-import React, { Component, PropTypes } from "react";
-import classnames from "classnames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-import AddFriendInput from "./AddFriendInput";
-import AddFriendRadio from "./AddFriendRadio";
+import AddFriendInput from './AddFriendInput';
+import AddFriendRadio from './AddFriendRadio';
 
-import { MALE } from "./../constants/PageTypes";
+import { MALE } from './../constants/PageTypes';
 
-import styles from "./AddFriend.css";
+import styles from './AddFriend.css';
 
 class AddFriend extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      name: "",
-      gender: MALE
+      name: '',
+      gender: MALE,
     };
   }
 
@@ -22,10 +23,10 @@ class AddFriend extends Component {
       <div onKeyDown={this.handleKeyDown} className={styles.addFriendContainer}>
         <AddFriendInput name={this.state.name} onHandleChange={this.handleChange} />
         <AddFriendRadio gender={this.state.gender} onHandleChange={this.handleChange} />
-        <div className={classnames("text-center", styles.addFriendButtonHolder)}>
+        <div className={classnames('text-center', styles.addFriendButtonHolder)}>
           <button
-            type='button'
-            className='btn'
+            type="button"
+            className="btn"
             onClick={this.handleSubmit}
             disabled={this.state.name.length > 0 ? false : true}>
             Add Friend
@@ -36,7 +37,7 @@ class AddFriend extends Component {
   }
 
   resetState = () => {
-    this.setState({ name: "", gender: MALE });
+    this.setState({ name: '', gender: MALE });
   };
 
   handleChange = (key, value) => {
@@ -58,7 +59,7 @@ class AddFriend extends Component {
 }
 
 AddFriend.propTypes = {
-  addFriend: PropTypes.func.isRequired
+  addFriend: PropTypes.func.isRequired,
 };
 
 export default AddFriend;

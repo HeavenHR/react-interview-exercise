@@ -10,8 +10,12 @@
   flex: 1 0 auto;
 }
 
-:local(.friendInfos span) {
+:local(.name) {
   font-weight: bold;
+}
+
+:local(.gender) {
+  font-weight: normal;
 }
 
 :local(.friendActions) {

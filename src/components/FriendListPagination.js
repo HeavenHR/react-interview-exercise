@@ -1,18 +1,19 @@
-import React, { PropTypes } from "react";
-import classnames from "classnames";
-import styles from "./FriendListPagination.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import styles from './FriendListPagination.css';
 
 const FriendListPagination = (props) => {
   const { page, totalPages, onPageChange, isNextPagePresent, ispreviousPagePresent } = props;
   return (
-    <div className={classnames(styles.friendListPagination, "text-center")}>
+    <div className={classnames(styles.friendListPagination, 'text-center')}>
       <button
         className={`btn btn-default`}
         disabled={!ispreviousPagePresent}
         onClick={() => {
-          onPageChange("previous");
+          onPageChange('previous');
         }}>
-        <i className={"fa fa-chevron-left"} />
+        <i className={'fa fa-chevron-left'} />
       </button>
       <label className={styles.friendListPaginationPageNumber}>
         {page} of {totalPages}
@@ -21,9 +22,9 @@ const FriendListPagination = (props) => {
         className={`btn btn-default`}
         disabled={!isNextPagePresent}
         onClick={() => {
-          onPageChange("next");
+          onPageChange('next');
         }}>
-        <i className='fa fa-chevron-right' />
+        <i className="fa fa-chevron-right" />
       </button>
     </div>
   );
@@ -34,7 +35,7 @@ FriendListPagination.propTypes = {
   totalPages: PropTypes.number,
   onPageChange: PropTypes.func.isRequired,
   isNextPagePresent: PropTypes.bool,
-  ispreviousPagePresent: PropTypes.bool
+  ispreviousPagePresent: PropTypes.bool,
 };
 
 export default FriendListPagination;
