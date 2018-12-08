@@ -48,7 +48,7 @@ export class FriendListApp extends Component {
     };
 
     return (
-      <div className={styles.friendListApp}>
+      <div className={styles.friendListApp}>      
         <h1>The FriendList</h1>
         <AddFriend addFriend={actions.addFriend} />
         <FriendList friends={this.state.friendListItems} actions={actions} />

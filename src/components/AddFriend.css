@@ -5,3 +5,12 @@
 :local(.addFriendButtonHolder) {
   margin-bottom: 10px;
 }
+
+:local(.tickbox) {
+  margin: 10px; 
+  display: inline;
+}
+
+:local(.color) {
+  color: lightgreen;
+}

@@ -12,7 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Provider store={store}>
+        <Provider store={store}>        
           <FriendListApp />
         </Provider>
       </div>

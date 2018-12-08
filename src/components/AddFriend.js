@@ -15,6 +15,7 @@ class AddFriend extends Component {
     this.state = {
       name: '',
       gender: MALE,
+      showSuccess: false,
     };
   }
 
@@ -31,6 +32,13 @@ class AddFriend extends Component {
             disabled={this.state.name.length > 0 ? false : true}>
             Add Friend
           </button>
+          {this.state.showSuccess ? (
+            <div className={styles.tickbox}>
+              <i className={classnames('fa fa-check', styles.color)} aria-hidden="true" />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     );
@@ -48,6 +56,11 @@ class AddFriend extends Component {
     const nameFromState = this.state.name.trim();
     this.props.addFriend({ name: nameFromState, gender: this.state.gender });
     this.resetState();
+    this.setState({ showSuccess: true }, () => {
+      setTimeout(() => {
+        this.setState({ showSuccess: false });
+      }, 1500);
+    });
   };
 
   handleKeyDown = (e) => {
