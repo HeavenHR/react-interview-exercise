@@ -1,0 +1,61 @@
+:local(.pageStyle) {
+  padding: 5px;
+  text-align: center;
+}
+
+:local(.pageStyle button) {
+  background: none;
+  font-size: 1em;
+  margin: 2px;
+  color: white;
+  border: 1px solid white;
+}
+
+:local(.pageStyle button:hover) {
+  color: #5c75b0;
+  background: white;
+  border: 1px solid white;
+}
+
+:local(.pageStyle span) {
+  color: white;
+  margin: 0 4px 0 4px;
+} 
+
+:local(.pageStyle a) {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  border: 1px solid white;
+  margin: 2px;
+  color: white;
+}
+
+:local(.pageStyle a:hover) {
+  color: #5c75b0;
+  background: white;
+  border: 1px solid white;
+  text-decoration: none;
+}
+
+:local(.pageStyle a:active) {
+  color: white;
+  background: #5c75b0;
+  border: 1px solid white;
+  text-decoration: none;
+}
