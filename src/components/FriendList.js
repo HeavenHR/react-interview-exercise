@@ -34,9 +34,9 @@ class FriendList extends Component {
                 <FriendListItem
                   key={index}
                   id={index}
-                  name={friend.name}
-                  starred={friend.starred}
-                  {...this.props.actions} />
+                  {...friend} // { name, gender, starred }
+                  {...this.props.actions} // { addFriend, deleteFriend, starFriend }
+                />
               );
             })
           }

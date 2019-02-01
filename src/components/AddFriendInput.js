@@ -1,19 +1,39 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './AddFriendInput.css';
+import { GENDERS } from '../constants/Gender';
 
 class AddFriendInput extends Component {
 
   render () {
+    const { name, gender, validation } = this.state;
     return (
-      <input
-        type="text"
-        autoFocus="true"
-        className={classnames('form-control', styles.addFriendInput)}
-        placeholder="Type the name of a friend"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)} />
+      <div className={styles.addFriendForm}>
+        <input
+          type="text"
+          name="name"
+          autoFocus="true"
+          className={classnames('form-control', styles.addFriendInput, { [styles.hasError]: !validation.name })}
+          placeholder="Type the name of a friend"
+          value={name}
+          onChange={this.handleChange.bind(this)} />
+        <select
+          name="gender"
+          className={classnames('form-control', styles.addFriendSelect, { [styles.hasError]: !validation.gender})}
+          value={gender}
+          onChange={this.handleChange.bind(this)}>
+            <option key={0} hidden>Gender...</option>
+          {
+            GENDERS.map(gender => <option key={gender} value={gender}>{gender}</option>)
+          }
+        </select>
+        <input
+          className={classnames('btn btn-default', styles.addFriendSubmit)}
+          type="submit"
+          value="Submit"
+          onClick={this.handleSubmit.bind(this)}/>
+      </div>
     );
   }
 
@@ -21,18 +41,48 @@ class AddFriendInput extends Component {
     super(props, context);
     this.state = {
       name: this.props.name || '',
+      gender: this.props.gender || 'placeholder',
+      validation: {
+        name: true,
+        gender: true,
+      }
     };
   }
 
   handleChange (e) {
-    this.setState({ name: e.target.value });
+    const { name, value, validation } = e.target;
+    this.setState({ [name]: value });
+    if(!value) {
+      this.setState({
+        validation: {
+          ...validation,
+          [name]: false
+        }
+      })
+    }
+  }
+
+  isFormValid () {
+    const { name, gender } = this.state;
+    let validation = {
+      name: !!name,
+      gender: gender !== 'placeholder',
+    }
+
+    this.setState({ validation })
+
+    if( !name || gender === 'placeholder' ) {
+      return false;
+    }
+
+    return true;
   }
 
   handleSubmit (e) {
-    const name = e.target.value.trim();
-    if (e.which === 13) {
-      this.props.addFriend(name);
-      this.setState({ name: '' });
+    const { name, gender } = this.state;
+    if (this.isFormValid()) {
+      this.props.addFriend({ name, gender });
+      this.setState({ name: '', gender: 'placeholder' });
     }
   }
 
