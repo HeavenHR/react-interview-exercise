@@ -1,4 +1,32 @@
+:local(.friendListWrapper) {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+:local(.friendListOptions) {
+  padding: 5px;
+  text-align: right;
+  color: #fff;
+}
+
+:local(.friendListOptions__select) {
+  border-radius: 3px;
+  background: transparent;
+  border: 1px solid #fff;
+  margin-left: 5px;
+}
+
+:local(.friendListOptions__option) {
+  color: #333;
+}
+
 :local(.friendList) {
   padding-left: 0;
   margin-bottom: 0;
+}
+
+:local(.friendListPaging) {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }

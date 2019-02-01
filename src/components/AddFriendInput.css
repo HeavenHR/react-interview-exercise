@@ -1,6 +1,30 @@
-:local(.addFriendInput) {
+:local(.addFriendForm) {
+  margin-bottom: 10px;
+}
+
+:local(.addFriendInput),
+:local(.addFriendSelect),
+:local(.addFriendSubmit) {
   border-radius: 0;
   border-color: #ABAAAA;
   border-left: 0;
   border-right: 0;
+  display: inline-block;
+}
+
+
+:local(.hasError) {
+  box-shadow: inset 0 0 0 1px #e74c3c;
+}
+
+:local(.addFriendSelect) {
+  width: 60%;
+  margin-top: 5px;
+}
+
+:local(.addFriendSubmit) {
+  margin-left: 5px;
+  width: calc(40% - 5px);
+  margin-top: 5px;
+  vertical-align: top;
 }

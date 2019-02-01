@@ -14,6 +14,10 @@
   font-weight: bold;
 }
 
+:local(.friendInfos i) {
+  color: #16a085;
+}
+
 :local(.friendActions) {
   flex: 0 0 90px;
 }
