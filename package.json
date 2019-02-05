@@ -16,6 +16,17 @@
     "prettier": "^1.16.4",
     "react-scripts": "0.9.5"
   },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
