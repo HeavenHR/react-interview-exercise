@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './FriendListItem.css';
 
@@ -6,9 +7,13 @@ class FriendListItem extends Component {
 
   render() {
     return (
-      <li className={styles.friendListItem}>
+      <li className={`list-group-item ${styles.friendListItem}`}>
         <div className={styles.friendInfos}>
           <div><span>{this.props.name}</span></div>
+          <div className={styles.genderInfo}>
+            <i className={`fa fa-${this.props.gender}`} />
+            <small>{this.props.gender}</small>
+          </div>
           <div>
             <small>xx friends in common</small>
           </div>

@@ -1,0 +1,1 @@
+exports[`<ErrorMessage /> should render correctly according to props 1`] = `"<span class=\"help-block\">Please fill friend name</span>"`;

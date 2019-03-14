@@ -1,0 +1,6 @@
+exports[`<AddFriendInput /> should render correctly according to props 1`] = `
+"<div class="form-group">
+  <input type="text" class="form-control" placeholder="Type the name of a friend"
+  value="sample name">
+</div>"
+`;

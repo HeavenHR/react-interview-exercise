@@ -1,0 +1,36 @@
+exports[`<FriendList /> should render correctly according to props 1`] = `
+"<ul class=\"list-group undefined\">
+  <li class=\"list-group-item undefined\">
+    <div>
+      <div><span>Theodore Roosevelt</span>
+      </div>
+      <div><i class=\"fa fa-male\"></i><small>male</small>
+      </div>
+      <div><small>xx friends in common</small>
+      </div>
+    </div>
+    <div>
+      <button class=\"btn btn-default undefined\"><i class=\"fa fa-star\"></i>
+      </button>
+      <button class=\"btn btn-default undefined\"><i class=\"fa fa-trash\"></i>
+      </button>
+    </div>
+  </li>
+  <li class=\"list-group-item undefined\">
+    <div>
+      <div><span>Abraham Lincoln</span>
+      </div>
+      <div><i class=\"fa fa-male\"></i><small>male</small>
+      </div>
+      <div><small>xx friends in common</small>
+      </div>
+    </div>
+    <div>
+      <button class=\"btn btn-default undefined\"><i class=\"fa fa-star-o\"></i>
+      </button>
+      <button class=\"btn btn-default undefined\"><i class=\"fa fa-trash\"></i>
+      </button>
+    </div>
+  </li>
+</ul>"
+`;

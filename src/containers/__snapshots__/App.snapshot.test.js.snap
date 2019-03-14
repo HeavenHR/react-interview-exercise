@@ -1,0 +1,71 @@
+exports[`<App /> should renders without crashing 1`] = `
+"<div>
+  <h1>The FriendList</h1>
+  <div>
+    <div class=\"addFriend\">
+      <div class=\"form-group\">
+        <input type=\"text\" class=\"form-control\" placeholder=\"Type the name of a friend\"
+        value=\"\">
+      </div>
+      <div class=\"form-group\">
+        <div class=\"btn-group btn-block\">
+          <button type=\"button\" value=\"male\" class=\"btn btn-primary col-sm-6\"><i class=\"fa fa-male\"></i>
+            <!-- react-text: 11 -->male
+            <!-- /react-text -->
+          </button>
+          <button type=\"button\" value=\"female\" class=\"btn btn-primary col-sm-6\"><i class=\"fa fa-female\"></i>
+            <!-- react-text: 14 -->female
+            <!-- /react-text -->
+          </button>
+        </div>
+      </div>
+    </div>
+    <ul class=\"list-group undefined\">
+      <li class=\"list-group-item undefined\">
+        <div>
+          <div><span>Theodore Roosevelt</span>
+          </div>
+          <div><i class=\"fa fa-male\"></i><small>male</small>
+          </div>
+          <div><small>xx friends in common</small>
+          </div>
+        </div>
+        <div>
+          <button class=\"btn btn-default undefined\"><i class=\"fa fa-star\"></i>
+          </button>
+          <button class=\"btn btn-default undefined\"><i class=\"fa fa-trash\"></i>
+          </button>
+        </div>
+      </li>
+      <li class=\"list-group-item undefined\">
+        <div>
+          <div><span>Abraham Lincoln</span>
+          </div>
+          <div><i class=\"fa fa-male\"></i><small>male</small>
+          </div>
+          <div><small>xx friends in common</small>
+          </div>
+        </div>
+        <div>
+          <button class=\"btn btn-default undefined\"><i class=\"fa fa-star-o\"></i>
+          </button>
+          <button class=\"btn btn-default undefined\"><i class=\"fa fa-trash\"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class=\"\">
+    <ul class=\"pagination\">
+      <li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\">&lt; prev</a>
+      </li>
+      <li class=\"page-item current\"><a class=\"page-link\" href=\"#\">1</a>
+      </li>
+      <li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a>
+      </li>
+      <li class=\"page-item\"><a class=\"page-link\" href=\"#\">next &gt;</a>
+      </li>
+    </ul>
+  </div>
+</div>"
+`;

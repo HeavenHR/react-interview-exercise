@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
 import styles from './FriendListApp.css';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import {addFriend, deleteFriend, starFriend} from '../actions/FriendsActions';
-import { FriendList, AddFriendInput } from '../components';
+import * as actionsObject from '../actions';
+import { FriendList, Pagination, AddFriend } from '../components';
+import { derivePageItems } from '../utils/pagination';
 
 class FriendListApp extends Component {
-
-  render () {
-    const { friendlist: { friendsById }} = this.props;
-
-    const actions = {
-      addFriend: this.props.addFriend,
-      deleteFriend: this.props.deleteFriend,
-      starFriend: this.props.starFriend
-    };
+  render() {
+    const { friendlist: { friendsById }, pagination: { pageSize, currentPage, pagingRange }, actions } = this.props;
+    const currentList = derivePageItems(friendsById, currentPage, pageSize) || []; // friendList should render based on currentPage
+    const totalPages = Math.ceil(friendsById.length / pageSize);
 
     return (
       <div className={styles.friendListApp}>
         <h1>The FriendList</h1>
-        <AddFriendInput addFriend={actions.addFriend} />
-        <FriendList friends={friendsById} actions={actions} />
+        <div className={styles.wrapper}>
+          <AddFriend addFriend={actions.addFriend} />
+          <FriendList friends={currentList} actions={actions} />
+        </div>
+        {totalPages > 1 &&
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            pagingRange={pagingRange}
+            {...actions}
+          />}
       </div>
     );
   }
@@ -28,10 +34,8 @@ class FriendListApp extends Component {
 
 function mapStateToProps(state) {
   return state
-}
+};
 
-export default connect(mapStateToProps, {
-  addFriend,
-  deleteFriend,
-  starFriend
-})(FriendListApp)
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionsObject, dispatch) });
+
+export default connect(mapStateToProps, mapDispatchToProps)(FriendListApp)
