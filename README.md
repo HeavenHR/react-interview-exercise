@@ -14,6 +14,18 @@ open http://localhost:3000
 - Add sanpshot / unit testing - coverage 96.69%
 - Installed prop-types libarary to avoid warning
 - Installed only required test libraries
+- updated folder structure for components
+                 
+├── src 
+├───├── actions
+    ├── components
+        ├── AddFriend
+        ├── AddFriendInput
+        ├── ButtonGroup
+        ├── ErrorMessage
+        ├── FriendList
+        ├── FriendListItem
+        ├── Pagination
 
 ## Tasks
 
