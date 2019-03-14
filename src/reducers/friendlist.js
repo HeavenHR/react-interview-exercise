@@ -1,18 +1,21 @@
 import * as types from '../constants/ActionTypes';
 
-const initialState = {
+export const initialState = {
   friendsById: [
     {
       name: 'Theodore Roosevelt',
-      starred: true
+      starred: true,
+      gender: 'male'
     },
     {
       name: 'Abraham Lincoln',
-      starred: false
+      starred: false,
+      gender: 'male'
     },
     {
       name: 'George Washington',
-      starred: false
+      starred: false,
+      gender: 'male'
     }
   ]
 };
@@ -23,10 +26,8 @@ export default function friends(state = initialState, action) {
       return {
         ...state,
         friendsById: [
+          action.friend,
           ...state.friendsById,
-          {
-            name: action.name
-          }
         ],
       };
     case types.DELETE_FRIEND:

@@ -7,7 +7,7 @@ body {
 
 :local(.friendListApp) {
   width: 300px;
-  padding-top: 18px;
+  padding: 18px 0;
   background-color: #5C75B0;
   border: 1px solid #E3E3E3;
 }
@@ -20,4 +20,9 @@ body {
   margin-top: 0;
   padding-left: 10px;
   font-family: Helvetica;
+}
+
+:local(.wrapper) {
+  width: 90%;
+  margin: 0 auto;
 }

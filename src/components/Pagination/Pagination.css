@@ -1,0 +1,13 @@
+:local(.paginationWrapper) {
+  display: flex;
+  justify-content: center;
+}
+
+:local(li.current a) {
+  background-color: #F4F3F0;
+}
+
+:local(li.page-item a):active {
+  background-color: #fff;
+  color: #337ab7;
+}

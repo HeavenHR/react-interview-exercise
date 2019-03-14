@@ -1,0 +1,33 @@
+exports[`<Pagination /> should render correctly according to props 1`] = `
+"<div class=\"\">
+  <ul class=\"pagination\">
+    <li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\">&lt; prev</a>
+    </li>
+    <li class=\"page-item current\"><a class=\"page-link\" href=\"#\">1</a>
+    </li>
+    <li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a>
+    </li>
+    <li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a>
+    </li>
+    <li class=\"page-item\"><a class=\"page-link\" href=\"#\">next &gt;</a>
+    </li>
+  </ul>
+</div>"
+`;
+
+exports[`<Pagination /> should render next set of pages, when currentPage > pageRange 1`] = `
+"<div class=\"\">
+  <ul class=\"pagination\">
+    <li class=\"page-item\"><a class=\"page-link\" href=\"#\">&lt; prev</a>
+    </li>
+    <li class=\"page-item\"><a class=\"page-link\" href=\"#\">4</a>
+    </li>
+    <li class=\"page-item current\"><a class=\"page-link\" href=\"#\">5</a>
+    </li>
+    <li class=\"page-item\"><a class=\"page-link\" href=\"#\">6</a>
+    </li>
+    <li class=\"page-item\"><a class=\"page-link\" href=\"#\">next &gt;</a>
+    </li>
+  </ul>
+</div>"
+`;

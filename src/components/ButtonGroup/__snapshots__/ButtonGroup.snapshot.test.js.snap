@@ -1,0 +1,14 @@
+exports[`<ButtonGroup /> should render correctly according to props 1`] = `
+"<div class=\"form-group\">
+  <div class=\"btn-group btn-block\">
+    <button type=\"button\" value=\"male\" class=\"btn btn-primary col-sm-6\"><i class=\"fa fa-male\"></i>
+      <!-- react-text: 5 -->male
+      <!-- /react-text -->
+    </button>
+    <button type=\"button\" value=\"female\" class=\"btn btn-primary col-sm-6\"><i class=\"fa fa-female\"></i>
+      <!-- react-text: 8 -->female
+      <!-- /react-text -->
+    </button>
+  </div>
+</div>"
+`;

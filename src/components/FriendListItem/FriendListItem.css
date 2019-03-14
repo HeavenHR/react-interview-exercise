@@ -6,6 +6,10 @@
   display: flex;
 }
 
+:local(.genderInfo) {
+  text-transform: capitalize;
+}
+
 :local(.friendInfos) {
   flex: 1 0 auto;
 }

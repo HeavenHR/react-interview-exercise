@@ -11,12 +11,18 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-15": "^1.3.0",
+    "html": "^1.0.0",
+    "prop-types": "^15.7.2",
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:coverage": "yarn test --coverage",
     "eject": "react-scripts eject"
   }
 }
