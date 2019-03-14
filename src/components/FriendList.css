@@ -2,3 +2,17 @@
   padding-left: 0;
   margin-bottom: 0;
 }
+
+:local(.btnMargin) {
+  margin: 0 3px;
+}
+
+:local(.currentPage) {
+  background: cornflowerblue;
+  color: white;
+}
+
+.activeButton {
+  background: cornflowerblue;
+  color: white;
+}

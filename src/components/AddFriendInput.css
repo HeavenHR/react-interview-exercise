@@ -1,6 +1,22 @@
 :local(.addFriendInput) {
   border-radius: 0;
-  border-color: #ABAAAA;
+  border-color: #abaaaa;
   border-left: 0;
   border-right: 0;
+}
+
+:local(.formContainer) {
+  height: 40px;
+}
+
+:local(.genderDropdown) {
+  height: 30px;
+  width: 160px;
+  margin: 5px 5px;
+}
+
+:local(.btnSubmit) {
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 15px;
 }

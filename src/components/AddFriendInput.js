@@ -1,45 +1,67 @@
-import React, { Component, PropTypes } from 'react';
-import classnames from 'classnames';
-import styles from './AddFriendInput.css';
+import React, { Component, PropTypes } from "react";
+import classnames from "classnames";
+import styles from "./AddFriendInput.css";
 
 class AddFriendInput extends Component {
-
-  render () {
-    return (
-      <input
-        type="text"
-        autoFocus="true"
-        className={classnames('form-control', styles.addFriendInput)}
-        placeholder="Type the name of a friend"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)} />
-    );
-  }
-
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context);
     this.state = {
-      name: this.props.name || '',
+      name: this.props.name || "",
+      gender: ""
     };
   }
 
-  handleChange (e) {
+  handleChange(e) {
     this.setState({ name: e.target.value });
   }
 
-  handleSubmit (e) {
-    const name = e.target.value.trim();
-    if (e.which === 13) {
-      this.props.addFriend(name);
-      this.setState({ name: '' });
-    }
+  handleSelectChange(e) {
+    this.setState({ gender: e.target.value });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const name = e.target[0].value.trim();
+    const gender = e.target[1].value;
+    this.props.addFriend(name, gender);
+    this.setState({ name: "", gender: "" });
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit.bind(this)}>
+        <input
+          type="text"
+          autoFocus="true"
+          className={classnames("form-control", styles.addFriendInput)}
+          placeholder="Type the name of a friend"
+          value={this.state.name}
+          onChange={this.handleChange.bind(this)}
+        />
+        <div className={styles.formContainer}>
+          <select
+            name="gender"
+            value={this.state.gender}
+            onChange={this.handleSelectChange.bind(this)}
+            className={styles.genderDropdown}
+          >
+            <option value="">select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <input
+            type="submit"
+            value="Add Friend"
+            className={styles.btnSubmit}
+          />
+        </div>
+      </form>
+    );
+  }
 }
 
 AddFriendInput.propTypes = {
   addFriend: PropTypes.func.isRequired
 };
 
-export default AddFriendInput
+export default AddFriendInput;
