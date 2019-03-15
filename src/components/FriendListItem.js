@@ -18,7 +18,7 @@ class FriendListItem extends Component {
         </div>
         <div className={styles.friendActions}>
           <button
-            className={`btn btn-default ${styles.btnAction}`}
+            className={`btn btn-default star ${styles.btnAction}`}
             onClick={() => this.props.starFriend(this.props.id)}
           >
             <i
@@ -29,7 +29,7 @@ class FriendListItem extends Component {
             />
           </button>
           <button
-            className={`btn btn-default ${styles.btnAction}`}
+            className={`btn btn-default delete ${styles.btnAction}`}
             onClick={() => this.props.deleteFriend(this.props.id)}
           >
             <i className="fa fa-trash" />

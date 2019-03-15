@@ -58,8 +58,7 @@ class FriendList extends Component {
       return obj;
     });
     const pageNumbers = [];
-    let currentPageFriends;
-    currentPageFriends = friendsWithIndex.slice(
+    let currentPageFriends = friendsWithIndex.slice(
       currentPage * friendsPerPage - friendsPerPage,
       currentPage * friendsPerPage
     );
@@ -97,7 +96,7 @@ class FriendList extends Component {
         {pageNumbers.length > 1 ? (
           <div style={{ textAlign: "center" }}>
             <button
-              className={`btn btn-default ${styles.btnMargin}`}
+              className={`btn btn-default prev ${styles.btnMargin}`}
               onClick={this.handlePrevClick}
             >
               Prev
@@ -105,10 +104,12 @@ class FriendList extends Component {
             {displayedPageNumbers.map(number => {
               return (
                 <button
-                  className={classnames(`btn btn-default ${styles.btnMargin}`, {
-                    activeButton: this.state.currentPage === number
-                  })}
-                  //className={`btn btn-default pageNumbers ${styles.btnMargin}`}
+                  className={classnames(
+                    `btn btn-default page ${styles.btnMargin}`,
+                    {
+                      activeButton: this.state.currentPage === number
+                    }
+                  )}
                   key={number}
                   id={number}
                   onClick={this.handlePageClick}
@@ -118,7 +119,7 @@ class FriendList extends Component {
               );
             })}
             <button
-              className={`btn btn-default ${styles.btnMargin}`}
+              className={`btn btn-default next ${styles.btnMargin}`}
               onClick={() => this.handleNextClick(pageNumbers.length)}
             >
               Next

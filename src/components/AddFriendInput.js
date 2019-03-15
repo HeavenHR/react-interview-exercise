@@ -8,24 +8,36 @@ class AddFriendInput extends Component {
     super(props, context);
     this.state = {
       name: this.props.name || "",
-      gender: ""
+      gender: this.props.gender || ""
     };
   }
 
   handleChange(e) {
-    this.setState({ name: e.target.value });
+    this.setState({
+      name: e.target.value
+    });
   }
 
   handleSelectChange(e) {
-    this.setState({ gender: e.target.value });
+    this.setState({
+      gender: e.target.value
+    });
+  }
+
+  validateForm() {
+    return this.state.name !== "" && this.state.gender !== "";
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const name = e.target[0].value.trim();
-    const gender = e.target[1].value;
-    this.props.addFriend(name, gender);
-    this.setState({ name: "", gender: "" });
+    if (this.validateForm()) {
+      const name = e.target[0].value.trim();
+      const gender = e.target[1].value;
+      this.props.addFriend(name, gender);
+      this.setState({ name: "", gender: "" });
+    } else {
+      alert("Please enter all form fields: name, gender");
+    }
   }
 
   render() {
